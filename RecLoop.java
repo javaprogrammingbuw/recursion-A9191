@@ -1,4 +1,4 @@
-package recursion;
+
 
 import java.util.Scanner;
 
@@ -33,7 +33,7 @@ public class RecLoop{
 				a = b;
                 b = c;			
 			}
-			return euclidRec(a, b);
+			return euclidRec(a, b);		//That's not iterative, you are just calling the recursive method here.
 		} else {
 			return euclidRec(a - b, b);
 		}
@@ -66,7 +66,7 @@ public class RecLoop{
 			return 1;
 		}
 			else{
-         return base * powRecursive( base,(n-1));
+         return base * powRecursive( base,(n-1));	//That's not iterative, you are just calling the recursive method here.
 			
 		}
 	}   
