@@ -1,20 +1,33 @@
-
+package recursion;
 
 import java.util.Scanner;
 
 public class RecLoop{
-
-	//todo: Look at the given code and try to understand the methods.
-	//The first method euklidRek uses recursion to compute the euclidean algorithm.
-	//You can look up the algorithm here: https://en.wikipedia.org/wiki/Euclidean_algorithm
-	//Add another method euclidIterative that computes the euclidean algorithm iterative.
-	//The second method powIterative computes the the base to the power of n in a iterative way.
-	//Add another method powRek which does exactly the same, but by using recursion.
-
+	
+    public static void main(String args[]){ 
+    	
+    	Scanner in1 = new Scanner(System.in);
+    	Scanner in2 = new Scanner(System.in);
+	    System.out.print("Enter a numbers: ");
+	int g;
+	int h;
+	g = in1.nextInt();
+	h = in2.nextInt();
+    	double res1 = euclidRec( g, h);
+    	double ans2 = euclidItr( g, h);
+    	System.out.println(res1 );
+    	System.out.println(ans2 );
+    	double res3 = powRecursive( g, h);
+    	double ans4 = powIterative( g, h);
+    	System.out.println(res3 );
+    	System.out.println(ans4 );
+    } 
+	
 	 public static int euclidRec(int a, int b) {
 		if (a == b) {
 			return a;
-		} else if (b > a) {
+		} 
+		else if (b > a) {
 			int temp = a;
 			a = b;
 			b = temp;
@@ -23,6 +36,7 @@ public class RecLoop{
 			return euclidRec(a - b, b);
 		}
 	}
+	
 	 public static int euclidItr(int a, int b) {
 		if (a == b) {
 			return a;
@@ -33,14 +47,12 @@ public class RecLoop{
 				a = b;
                 b = c;			
 			}
-			return euclidRec(a, b);		//That's not iterative, you are just calling the recursive method here.
+			return euclidItr(a, b);		
 		} else {
-			return euclidRec(a - b, b);
+			return euclidItr(a - b, b);
 		}
 	} 
-	 
-	 
-	 
+	 	 	 
 //--------------------------------------------------------------------------------------------------------------------	 
 	 
 	 
@@ -66,33 +78,18 @@ public class RecLoop{
 			return 1;
 		}
 			else{
-         return base * powRecursive( base,(n-1));	//That's not iterative, you are just calling the recursive method here.
+         return base * powRecursive( base,(n-1));
 			
 		}
 	}   
     
-    public static void main(String args[]){ 
-    	
-    	Scanner in1 = new Scanner(System.in);
-    	Scanner in2 = new Scanner(System.in);
-	    System.out.print("Enter a numbers: ");
-		 int g;
-		 int h;
-		    g = in1.nextInt();
-		    h = in2.nextInt();
-    	double res1 = euclidRec( g, h);
-    	double ans2 = euclidItr( g, h);
- //   	System.out.println(res1 );
- //   	System.out.println(ans2 );
-    	double res3 = powRecursive( g, h);
-    	double ans4 = powIterative( g, h);
-    	System.out.println(res3 );
-    	System.out.println(ans4 );
-    	
-    	
-    	
-    	
-
-    } 
-    
 }
+
+
+
+//todo: Look at the given code and try to understand the methods.
+//The first method euklidRek uses recursion to compute the euclidean algorithm.
+//You can look up the algorithm here: https://en.wikipedia.org/wiki/Euclidean_algorithm
+//Add another method euclidIterative that computes the euclidean algorithm iterative.
+//The second method powIterative computes the the base to the power of n in a iterative way.
+//Add another method powRek which does exactly the same, but by using recursion.
