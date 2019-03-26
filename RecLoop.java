@@ -9,10 +9,10 @@ public class RecLoop{
     	Scanner in1 = new Scanner(System.in);
     	Scanner in2 = new Scanner(System.in);
 	    System.out.print("Enter a numbers: ");
-	int g;
-	int h;
-	g = in1.nextInt();
-	h = in2.nextInt();
+		 int g;
+		 int h;
+		 g = in1.nextInt();
+		 h = in2.nextInt();
     	double res1 = euclidRec( g, h);
     	double ans2 = euclidItr( g, h);
     	System.out.println(res1 );
@@ -26,11 +26,12 @@ public class RecLoop{
 	 public static int euclidRec(int a, int b) {
 		if (a == b) {
 			return a;
+			
 		} 
 		else if (b > a) {
-			int temp = a;
+			int c = a;
 			a = b;
-			b = temp;
+			b = c;
 			return euclidRec(a, b);
 		} else {
 			return euclidRec(a - b, b);
@@ -38,20 +39,24 @@ public class RecLoop{
 	}
 	
 	 public static int euclidItr(int a, int b) {
-		if (a == b) {
-			return a;
-		} else if (b > a) {
-			
-			for (int i = 0; i < a; i++){
-				int c =a/b;
-				a = b;
-                b = c;			
-			}
-			return euclidItr(a, b);		
-		} else {
-			return euclidItr(a - b, b);
-		}
-	} 
+		 
+		 for(int i=0; i< Integer.MAX_VALUE; i++) {
+			 if(a==b) {	 
+				 return a;
+			 }
+			 else if (b > a) {
+				 int c = a;
+				 a = b;
+				 b = c;			
+			 } 
+			 else {
+				 a = a-b;
+			 }
+		 }
+		 return 0;
+	 }
+	
+	 
 	 	 	 
 //--------------------------------------------------------------------------------------------------------------------	 
 	 
